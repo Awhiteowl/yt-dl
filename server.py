@@ -14,10 +14,11 @@ def download_video():
 
     output_file = "video.mp4"
 
-    ydl_opts = {
-        'outtmpl': output_file,
-        'format': 'bestvideo+bestaudio/best',
-    }
+ytdl_opts = {
+    "format": "best",  # ✅ این فقط یک فرمت دانلود می‌کنه و ffmpeg لازم نیست
+    "outtmpl": "downloads/%(title)s.%(ext)s",
+}
+
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
